@@ -118,6 +118,9 @@ RST_TEMPLATE = """
 {% block input_group -%}
 {%- if cell.metadata.hide_input or nb.metadata.hide_input -%}
 {%- else -%}
+{%- if cell.metadata.always_show_code or nb.metadata.always_show_code -%}
+    .. rst-class:: always-show-code
+{%- endif -%}
 {{ super() }}
 {%- endif -%}
 {% endblock input_group %}
